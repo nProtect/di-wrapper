@@ -1,0 +1,9 @@
+#summary Tested Games
+
+= Playable =
+
+  * Alien versus Predator 2
+
+= Work in progress =
+
+  * Star Wars: Jedi Knight 2
