@@ -285,6 +285,7 @@ public:
 	static void									InitHID( HWND & h_wnd );
 
 	static void									SetBufferedMode( bool state ) { bufferedMode = state; if( !bufferedMode ) eventList.clear( ); }
+	static bool									GetBufferedMode( ) { return bufferedMode; }
 	static void									PushEvent( const DI_HID_MouseEvent & mouse_event ) { if( bufferedMode ) eventList.push_back( mouse_event ); }
 	static LONG &								ImmediateBuffer( int index ) { return immediateBuffer[ index ]; }
 
