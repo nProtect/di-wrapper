@@ -719,7 +719,13 @@ void DI_HID_DeviceBase::AdjustExclusiveMode( bool disable_capture ) {
 	if( disable_capture && !this->captureDisabled ) {
 
 		ClipCursor( NULL );
-		if( this->exclusiveMode ) ShowCursor( TRUE );
+
+		if( this->exclusiveMode ) {
+			
+			ReleaseCapture( );
+			ShowCursor( TRUE );
+		}
+
 		this->captureDisabled = true;
 	}
 	
@@ -727,11 +733,12 @@ void DI_HID_DeviceBase::AdjustExclusiveMode( bool disable_capture ) {
 
 		if( this->exclusiveMode ) {
 
-			GetClientRect( this->windowHandle, &this->windowRect );
+			GetWindowRect( this->windowHandle, &this->windowRect );
 			ClipCursor( &this->windowRect );
 
 			if( this->captureDisabled ) {
 
+				SetCapture( this->windowHandle );
 				ShowCursor( FALSE );
 			}
 		}
@@ -857,6 +864,7 @@ HRESULT DI_HID_DeviceBase::GetDeviceData( DWORD buf_size, LPDIDEVICEOBJECTDATA b
 	DI_HID_Object * deviceEvent;
 
 	assert( !flags ); // noremove not implemented yet
+	if( !WrapperSystem::GetBufferedMode( ) ) { *out_size = 0; return DIERR_NOTBUFFERED; }
 
 	// quake3 needs this
 	if( !this->isAcquired ) return DIERR_NOTACQUIRED;
@@ -933,8 +941,6 @@ HRESULT DI_HID_DeviceBase::SetDataFormat( LPCDIDATAFORMAT data_format ) {
 
 	// avoid GetDeviceData fails with a sequence reset
 	this->seqNumber = 0;
-	
-	if( data_format->dwNumObjs != dataFormat.size( ) ) return DIERR_INVALIDPARAM;
 
 	return S_OK;
 }
