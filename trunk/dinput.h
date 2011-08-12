@@ -2680,7 +2680,8 @@ typedef struct IDirectInput8 *LPDIRECTINPUT8;
 #endif
 #endif /* DIRECTINPUT_VERSION >= 0x0800 */
 
-#if DIRECTINPUT_VERSION > 0x0700
+// mrNuku - commented this out for resolving conflicting linkages
+/*#if DIRECTINPUT_VERSION > 0x0700
 
 extern HRESULT WINAPI DirectInput8Create(HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID *ppvOut, LPUNKNOWN punkOuter);
 
@@ -2695,7 +2696,7 @@ extern HRESULT WINAPI DirectInputCreateW(HINSTANCE hinst, DWORD dwVersion, LPDIR
 
 extern HRESULT WINAPI DirectInputCreateEx(HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID *ppvOut, LPUNKNOWN punkOuter);
 
-#endif /* DIRECTINPUT_VERSION > 0x700 */
+#endif*/ /* DIRECTINPUT_VERSION > 0x700 */
 
 #endif /* DIJ_RINGZERO */
 
