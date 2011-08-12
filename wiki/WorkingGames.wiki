@@ -1,9 +1,10 @@
 #summary Tested Games
 
-= Playable =
+_dinput.dll_
 
   * Alien versus Predator 2
+  * Star Wars: Jedi Knight 2 (may most Quake3 based games)
 
-= Work in progress =
+_dinput8.dll_
 
-  * Star Wars: Jedi Knight 2
+  * S.T.A.L.K.E.R series
