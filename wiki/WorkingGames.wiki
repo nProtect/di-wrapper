@@ -1,10 +1,11 @@
 #summary Tested Games
 
-_dinput.dll_
+*dinput.dll*
 
   * Alien versus Predator 2
   * Star Wars: Jedi Knight 2 (may most Quake3 based games)
+  * Quake 4
 
-_dinput8.dll_
+*dinput8.dll*
 
   * S.T.A.L.K.E.R series
