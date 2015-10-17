@@ -1,0 +1,1 @@
+Today high resolution mouse devices is not supported by DirectInput, but with this project, we can add the missing feature.
